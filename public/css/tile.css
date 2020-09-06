@@ -201,7 +201,7 @@ a{
 .secondary-img{
     width: 100vw;
     height: 100vh;
-    filter: blur(10px) brightness(60%);
+    filter: blur(30px) brightness(60%);
 }
 /* Tile section end */
 
