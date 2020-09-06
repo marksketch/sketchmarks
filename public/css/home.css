@@ -647,7 +647,6 @@ body {
 }
 .secondary-img{
     width: 100%;
-
     min-height: 100vw;
     height: auto;
     filter: blur(10px) brightness(75%);
