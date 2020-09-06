@@ -32,15 +32,15 @@
             <div class="double-bounce2"></div>
         </div>
     </div>
+    <div class="click-div-secondary">
+        <img src="data:image/<%=tile.img.contentType%>;base64,<%=tile.img.data.toString('base64')%>" class="secondary-img">
+    </div>
     <div class="inner">
         <div class="main">
             <a href="/profile/<%=tile.name%>" class="author">By <span><%=tile.name%></span></a>
             <div class="tile">
                 <img src="data:image/<%=tile.img.contentType%>;base64,<%=tile.img.data.toString('base64')%>" id="<%=tile._id%>" class="tile-img">
 
-            </div>
-            <div class="click-div-secondary">
-                <img src="data:image/<%=tile.img.contentType%>;base64,<%=tile.img.data.toString('base64')%>" class="secondary-img">
             </div>
             <div class="comments-section">
                 <div class="comment-div">
