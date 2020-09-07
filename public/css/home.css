@@ -1149,11 +1149,17 @@ footer {
         font-family: "Ubuntu";
         border-radius: 10px;
     }
+    .web-desc .inner{
+        padding: 0 20px;
+    }
     .web-desc-main{
         margin: 0 0;
     }
     .web-desc-text{
         font-size: 2rem;
+        font-family: "Work sans";
+        font-weight: bold;
+        letter-spacing: 2px;
     }
     .desc-account{
         font-size: 1.5rem;
