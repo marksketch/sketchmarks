@@ -399,31 +399,32 @@ app.get("/profilephoto",(req,res)=>{
 app.post("/signup", function (req, res) {
     let regex= /^[a-z0-9]+$/i
     username=req.body.username
-    if(!username.match(regex) || username.length<5){
+    if(!username.match(regex) || username.length<5 || username.length>12){
         res.render("signup",{idiocy: true})
-        return
     }
-    encAbout=req.body.about.replace(/</g,"&lt;").replace(/>/g,"&gt;")
-    encContact=req.body.contact.replace(/</g,"&lt;").replace(/>/g,"&gt;")
-    User.register({
-        username: username,
-        about : encAbout,
-        contact: encContact,
-        pfp:{
-            data: fs.readFileSync(path.join(__dirname +"/Procfile")),
-            contentType: "None"
-        },
-        totalLikes: 0
-    }, req.body.password, function (err, user) {
-        if (err) {
-            console.log(err);
-            res.redirect("/signup");
-        } else {
-            passport.authenticate("local")(req, res, function () {
-                res.redirect(`/profile/${username}`);
-            });
-        }
-    });
+    else{
+        encAbout=req.body.about.replace(/</g,"&lt;").replace(/>/g,"&gt;")
+        encContact=req.body.contact.replace(/</g,"&lt;").replace(/>/g,"&gt;")
+        User.register({
+            username: username,
+            about : encAbout,
+            contact: encContact,
+            pfp:{
+                data: fs.readFileSync(path.join(__dirname +"/Procfile")),
+                contentType: "None"
+            },
+            totalLikes: 0
+        }, req.body.password, function (err, user) {
+            if (err) {
+                console.log(err);
+                res.redirect("/signup");
+            } else {
+                passport.authenticate("local")(req, res, function () {
+                    res.redirect(`/profile/${username}`);
+                });
+            }
+        });
+    }
 });
 
 app.post('/login',(req,res)=>{

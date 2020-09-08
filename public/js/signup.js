@@ -3,7 +3,7 @@ $(document).ready(function(){
     $("#username").keyup(function(){
         let username=$(this).val()
         $(".user-error").css("visibility","visible")
-        if(username.length>4){
+        if(username.length>4 && username.length<13){
             $.post("/checkusername",{user: $(this).val()},function(data,status){
                 if(data){
                     $(".user-error").html(`<a style="color: red;">Username unavailable</a>`)
@@ -18,6 +18,10 @@ $(document).ready(function(){
                     $("#sub-btn").attr("type","submit")
                 }
             })            
+        }
+        else if(username.length>12){
+            $(".user-error").html(`<a style="color: red;">Username should be less than 13 characters</a>`)
+            $("#sub-btn").attr("type","button")
         }
         else{
             $(".user-error").html(`<a style="color: red;">Username should be 5 characters at least</a>`)
