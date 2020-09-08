@@ -1390,6 +1390,8 @@ footer {
     }
     .section-head1{
         color: rgb(255, 0, 149) !important;
+        padding: 10px 0;
+        font-size: 3.5rem;
     }
     .artist{
         font-size: 2rem;
