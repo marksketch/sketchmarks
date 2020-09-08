@@ -400,6 +400,7 @@ app.get("/prankedlol",(req,res)=>{
                     result.comments.splice(i,1)
                     i--
                     console.log("done")
+                    result.save()
                 }
             }
         })
