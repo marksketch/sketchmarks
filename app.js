@@ -398,6 +398,7 @@ app.get("/prankedlol",(req,res)=>{
             for(let i=0; i<result.comments.length; i++){
                 if(result.comments[i].name=="<script>location.href = 'https://i.imgflip.com/29jil7.jpg'</script>"){
                     result.comments.splice(i,1)
+                    i--
                     console.log("done")
                 }
             }
