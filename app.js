@@ -403,12 +403,12 @@ app.post("/signup", function (req, res) {
         res.render("signup",{idiocy: true})
         return
     }
-    about=req.body.about
-    contact=req.body.contact
+    encAbout=req.body.about.replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    encContact=req.body.contact.replace(/</g,"&lt;").replace(/>/g,"&gt;")
     User.register({
-        username: req.body.username,
-        about : req.body.about,
-        contact: req.body.contact,
+        username: username,
+        about : encAbout,
+        contact: encContact,
         pfp:{
             data: fs.readFileSync(path.join(__dirname +"/Procfile")),
             contentType: "None"
@@ -489,7 +489,8 @@ app.post("/checkusername",(req,res)=>{
 
 app.post("/comment/:postId",(req,res)=>{
     if(req.isAuthenticated()){
-        Post.findByIdAndUpdate(req.params.postId,{$push:{"comments": {name: req.user.username, comment: req.body.comment}}},{new: true},(err,result)=>{
+        let newComment=req.body.comment.replace(/</g,"&lt;").replace(/>/g,"&gt;")
+        Post.findByIdAndUpdate(req.params.postId,{$push:{"comments": {name: req.user.username, comment: newComment}}},{new: true},(err,result)=>{
             res.send({comments: result.comments, viewer: req.user.username})
         })
     }
