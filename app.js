@@ -395,7 +395,7 @@ app.get("/profilephoto",(req,res)=>{
 app.get("/lulusers",(req,res)=>{
     User.find({},(err,results)=>{
         results.forEach((result)=>{
-            if(result.username.length>12) console.log(result.username)
+            if(result.username.length>12) console.log(result.username, result.username.length)
         })
     })
 })
