@@ -13,8 +13,6 @@
 </head>
 
 <body>
-  <div class="inner home">
-    <a href="/"><i class="fas fa-home"></i></a>
   </div>
     <div class="inner">
         <form action="/signup" method="POST" id="signupForm">
@@ -22,6 +20,9 @@
                 <div class="flex">
                     <h1 class="head">Sign Up</h1>
                     <h2 class="desc">to <a href="/">Sketchtiles</a></h2>
+                    <% if(idiocy){ %>
+                      <div class="idiocy">Nice try.</div>
+                    <% } %>
                     <div class="user-error">&nbsp;</div>
                     <input type="text" placeholder="Username" name="username" class="form-box" autocomplete="off" id="username" required autofocus>
                     <input type="password" placeholder="Password" name="password" class="form-box" required>

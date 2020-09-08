@@ -80,11 +80,14 @@ input {
     font-size: 1rem;
     border: none;
 }
-
+.idiocy{
+    margin: 20px 0 0;
+    color: red;
+}
 .user-error{
     visibility: hidden;
     font-size: 1rem;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 #username{

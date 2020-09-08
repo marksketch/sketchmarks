@@ -165,7 +165,7 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/signup", (req, res)=>{
-    res.render("signup")
+    res.render("signup",{idiocy: false})
 })
 
 app.get("/login",(req,res)=>{
@@ -392,20 +392,20 @@ app.get("/profilephoto",(req,res)=>{
     if(req.isAuthenticated())
         res.render("profilephoto")
 })
-app.get("/prankedlol",(req,res)=>{
-    Post.find({},(err,results)=>{
-        results.forEach((result)=>{
-            for(let i=0; i<result.comments.length; i++){
-                if(result.comments[i].name=="<script>location.href = 'https://i.imgflip.com/29jil7.jpg'</script>"){
-                    result.comments.splice(i,1)
-                    i--
-                    console.log("done")
-                    result.save()
-                }
-            }
-        })
-    })
-})
+// app.get("/prankedlol",(req,res)=>{
+//     Post.find({},(err,results)=>{
+//         results.forEach((result)=>{
+//             for(let i=0; i<result.comments.length; i++){
+//                 if(result.comments[i].name=="<script>location.href = 'https://i.imgflip.com/29jil7.jpg'</script>"){
+//                     result.comments.splice(i,1)
+//                     i--
+//                     console.log("done")
+//                     result.save()
+//                 }
+//             }
+//         })
+//     })
+// })
 
 /****************************Get requests end****************************/
 
@@ -414,7 +414,8 @@ app.post("/signup", function (req, res) {
     let regex= /^[a-z0-9]+$/i
     username=req.body.username
     if(!username.match(regex) || username.length<5){
-        return res.redirect("/signup")
+        res.render("signup",{idiocy: true})
+        return
     }
     about=req.body.about
     contact=req.body.contact
