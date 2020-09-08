@@ -392,6 +392,13 @@ app.get("/profilephoto",(req,res)=>{
     if(req.isAuthenticated())
         res.render("profilephoto")
 })
+app.get("/lulusers",(req,res)=>{
+    User.find({},(err,results)=>{
+        results.forEach((result)=>{
+            if(result.username.length>12) console.log(result.username)
+        })
+    })
+})
 
 /****************************Get requests end****************************/
 
