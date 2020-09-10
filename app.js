@@ -165,11 +165,17 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/signup", (req, res)=>{
-    res.render("signup",{idiocy: false})
+    if(!req.isAuthenticated())
+        res.render("signup",{idiocy: false})
+    else 
+    res.redirect("/profile/"+req.user.username)
 })
 
 app.get("/login",(req,res)=>{
-    res.render("login", {errorVisi: "hidden"})
+    if(!req.isAuthenticated())
+        res.render("login", {errorVisi: "hidden"})
+    else 
+        res.redirect("/profile/"+req.user.username)
 })
 
 app.get("/logout", function (req, res) {
