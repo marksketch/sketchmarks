@@ -179,8 +179,8 @@ app.get("/login",(req,res)=>{
 })
 
 app.get("/logout", function (req, res) {
-  req.logout();
-  res.redirect("/");
+    req.logout();
+    res.redirect("/");
 });
 
 app.get("/profile/:username_url", (req, res)=>{
