@@ -181,6 +181,9 @@ html{
 }
 
 .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(-45deg,#f08a5d,#e84545,#b83b5e);
     position: fixed;
     height: 100vh;
