@@ -188,7 +188,6 @@ html{
     position: fixed;
     height: 100vh;
     width: 25vw;
-    justify-content: center;
 }
 
 .profile-inner{
