@@ -168,7 +168,7 @@ app.get("/signup", (req, res)=>{
     if(!req.isAuthenticated())
         res.render("signup",{idiocy: false})
     else 
-    res.redirect("/profile/"+req.user.username)
+        res.redirect("/profile/"+req.user.username)
 })
 
 app.get("/login",(req,res)=>{
