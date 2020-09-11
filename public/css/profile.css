@@ -281,6 +281,8 @@ html{
     position: relative;
     font-weight: bold;
     word-break: normal;
+    font-size: 1rem;
+    margin-top: 10px;
 }
 .profile-share:hover{
     cursor: pointer;
@@ -291,7 +293,7 @@ html{
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 2rem;
+    font-size: 1.5rem;
     vertical-align: -5px;
 }
 .prof-tooltip{
@@ -302,7 +304,7 @@ html{
     padding: 5px;
     border-radius: 6px;
     position: absolute;
-    left: 10%;
+    left: 12%;
     top: 100%;
     z-index: 3;
     width: 190px;
@@ -979,6 +981,7 @@ footer {
     .profile-share{
         font-size: 1.5rem;
         padding: 20px;
+        margin-top: 25px;
     }
     .prof-tooltip{
         left: 9%;
