@@ -67,6 +67,7 @@
                 </div>
                 <h1><%= username %></h1>
                 <h2 class="about"><%= about %> </h2>
+                <h2 class="total-likes">Total <i class="fas fa-heart heart"></i>: <%=totalLikes%></h2>
                 <h2 class="insta"><a
                     <% if(contact.charAt(0)=='@'){ %>
                         href="http://www.instagram.com/<%=contact.slice(1)%>/" 

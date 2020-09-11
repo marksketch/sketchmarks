@@ -240,6 +240,19 @@ html{
     font-weight: 700;
     word-break: break-all;
 }
+.total-likes{
+    font-family: "Work sans";
+    color: rgba(255, 255, 255, 0.822);
+    letter-spacing: 3px;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.43);
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+.total-likes i{
+    color: red;
+    font-size: 1.4rem;
+}
 .insta i{
     background: linear-gradient(to left,red,rgb(212, 0, 255));
     color: #d3d3d3;
@@ -947,6 +960,12 @@ footer {
     .about{
         font-size: 1.5rem;
         margin-bottom: 50px;
+    }
+    .total-likes{
+        font-size: 2rem;
+    }
+    .total-likes i{
+        font-size: 2rem;
     }
     .insta{
         margin-top: 30px;

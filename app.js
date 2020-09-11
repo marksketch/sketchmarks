@@ -192,6 +192,7 @@ app.get("/profile/:username_url", (req, res)=>{
                 const about=result.about
                 const contact=result.contact
                 const userPfp=result.pfp
+                const userLikes=result.totalLikes
                 Post.find({name: username}).sort({$natural: -1}).exec((err,results)=>{
                     if(err) console.log(err)
                     else {
@@ -202,6 +203,7 @@ app.get("/profile/:username_url", (req, res)=>{
                                     about: about,
                                     contact: contact,
                                     pfp: userPfp,
+                                    totalLikes: userLikes,
                                     works: results,
                                     loginDisplay: "none",
                                     signupDisplay: "none",
@@ -216,6 +218,7 @@ app.get("/profile/:username_url", (req, res)=>{
                                     about: about,
                                     contact: contact,
                                     pfp: userPfp,
+                                    totalLikes: userLikes,
                                     works: results,
                                     loginDisplay: "none",
                                     signupDisplay: "none",
@@ -231,6 +234,7 @@ app.get("/profile/:username_url", (req, res)=>{
                                 about: about,
                                 contact: contact,
                                 pfp: userPfp,
+                                totalLikes: userLikes,
                                 works: results,
                                 loginDisplay: "inline-block",
                                 signupDisplay: "inline-block",
@@ -343,6 +347,11 @@ app.get("/deletepost/:postId",(req,res)=>{
         if(err) console.log(err)
         else{
             if(req.isAuthenticated() && req.user.username==result.name){
+                let postLikes=result.likes.likesNum
+                User.findOne({username: result.name},(err,foundUser)=>{
+                    foundUser.totalLikes-=postLikes
+                    foundUser.save()
+                })
                 Post.deleteOne({_id: req.params.postId},(err,placeholder)=>{
                     if(err) console.log(err)
                     else res.send(req.user.username)
